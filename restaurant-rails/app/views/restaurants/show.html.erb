@@ -6,6 +6,11 @@
 
 
 
+<div id="map">
+
+  <img src="https://maps.googleapis.com/maps/api/staticmap?size=480x480&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=restaurant%257C996600%7C224<%= @restaurant.address %>">
+</div>
+
 
 <%= link_to 'Update restaurant',  edit_restaurant_path(@restaurant)%> 
 <%= link_to 'Delete restaurant',  { action: :destroy, id: @restaurant.id }, method: :delete, data: { confirm: 'Are you sure?' } %> 

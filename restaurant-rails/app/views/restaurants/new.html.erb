@@ -1,16 +1,12 @@
 <h1>Create a new restaurant entry</h1>
-
-<%= form_tag do %>
-    <%= label_tag(:title,"Name") %> <%= text_field_tag(:title) %>
- <%= label_tag(:description,"Description") %> <%= text_area_tag(:title) %>
- <%= label_tag(:address,"address") %> <%= text_field_tag(:address) %>
- <%= label_tag(:phonenumber,"Phone Number") %> <%= text_field_tag(:phonenumber) %>
-
-
-  <%= submit_tag("Add!") %>
-
-
-
-
-
+<%= form_for @restaurant, url: {action: "create"}, html: {class: "restform"} do |f| %>
+  
+  
+  <%= label_tag :name %> <%= f.text_field :name %>
+  <%= label_tag :address %> <%= f.text_field :address %>
+  <%= label_tag :phonenumber %> <%= f.text_field :phonenumber %>
+  <%= label_tag :description %><%= f.text_area :description, size: "60x12" %>
+  <%= f.submit "Create" %>
+  
+  
 <% end %>
