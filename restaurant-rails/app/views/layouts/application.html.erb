@@ -9,7 +9,11 @@
 
 </head>
 <body>
+	   <p class="notice"><%= notice %></p>
+	          <p class="alert"><%= alert %></p>
+
 <nav><%= link_to "Home", root_path %> |  <%= link_to "Create restaurant", "/restaurants/new" %></nav>
+<%= link_to "New user",  new_user_session_path %>
 <%= yield %>
 
 </body>
