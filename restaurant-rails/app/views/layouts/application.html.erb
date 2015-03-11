@@ -12,8 +12,23 @@
 	   <p class="notice"><%= notice %></p>
 	          <p class="alert"><%= alert %></p>
 
-<nav><%= link_to "Home", root_path %> |  <%= link_to "Create restaurant", "/restaurants/new" %></nav>
-<%= link_to "New user",  new_user_session_path %>
+<nav>
+<%= link_to "Home", root_path %> |
+<% if  !user_signed_in? %>
+  
+<%= link_to "New user",  new_user_registration_path %>  |
+<%= link_to "Login",  new_user_session_path %>
+
+<% else %>
+ <%= link_to "Create restaurant", "/restaurants/new"  %> | 
+<%= link_to "Logout",  destroy_user_session_path, :method => :delete %>
+
+<% end %>
+
+
+
+</nav>
+
 <%= yield %>
 
 </body>

@@ -1,12 +1,23 @@
 <h1>Create a new restaurant entry</h1>
-<%= form_for @restaurant, url: {action: "create"}, html: {class: "restform"} do |f| %>
-  
-  
-  <%= label_tag :name %> <%= f.text_field :name %>
-  <%= label_tag :address %> <%= f.text_field :address %>
-  <%= label_tag :phonenumber %> <%= f.text_field :phonenumber %>
-  <%= label_tag :description %><%= f.text_area :description, size: "60x12" %>
-  <%= f.submit "Create" %>
-  
-  
+
+<% if @restaurant.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+ 
+    <ul>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <li class="errormsg"><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
+
+
+
+<%= render partial: "form"%>
+
+
+<script>
+
+
+</script>

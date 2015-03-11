@@ -12,5 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+
+
+
+ $(document).ready(function () {
+	$(".valform").validate({
+	debug: true,
+	rules: {
+	"restaurant[name]": {required: true,  minlength: 4},
+	"restaurant[description]": {required: true}
+
+		}
+	});
+});
