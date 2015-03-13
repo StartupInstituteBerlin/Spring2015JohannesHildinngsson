@@ -1,0 +1,26 @@
+<%= form_for @reservation, :html => {:class => "dvalform"} do |f|  %>
+  <% if @reservation.errors.any? %>
+    <h2>Errors:</h2>
+    <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<p>
+        <%= f.label :lastname %><br />
+        <%= f.text_field :lastname %><br />
+<br />
+        <%= f.label :date %><br />
+        <%= f.date_field :date %>
+<br />
+		<%= f.label :email %><br />
+		<%= f.text_field :email %><br />
+<br />
+		<%= f.hidden_field :restaurant_id  %><br />
+
+
+<p>
+        <%= f.submit "Reserve your table!" %>
+</p>
+<% end %>
