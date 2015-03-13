@@ -21,10 +21,13 @@
 
 
  $(document).ready(function () {
+	console.log("in log")
 	$(".valform").validate({
 	debug: true,
 	rules: {
 	"restaurant[name]": {required: true,  minlength: 4},
+	"restaurant[phonenumber]": {required: true,  minlength: 4},
+	"restaurant[address]": {required: true,  minlength: 4},
 	"restaurant[description]": {required: true}
 
 		}
