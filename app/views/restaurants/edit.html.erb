@@ -1,0 +1,11 @@
+<h1>Welcome to <%= @restaurant.name %> </h1>
+<h1>Create a new restaurant entry</h1>
+<%= render partial: "form"%>
+
+
+
+
+
+
+<%= link_to 'Update restaurant',  edit_restaurant_path(@restaurant)%> 
+<%= link_to 'Delete restaurant',  { action: :destroy, id: @restaurant.id }, method: :delete, data: { confirm: 'Are you sure?' } %> 

@@ -1,0 +1,20 @@
+<h1>Create a new restaurant entry</h1>
+
+<% if @restaurant.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+ 
+    <ul>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <li class="errormsg"><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+<%= render partial: "form"%>
+
+
+

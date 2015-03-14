@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RestaurantRails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+	   <p class="notice"><%= notice %></p>
+	          <p class="alert"><%= alert %></p>
+
+<nav>
+<%= link_to "Home", root_path %> |
+<% if  !user_signed_in? %>
+  
+<%= link_to "New user",  new_user_registration_path %>  |
+<%= link_to "Login",  new_user_session_path %>
+
+<% else %>
+ <%= link_to "Create restaurant", "/restaurants/new"  %> | 
+<%= link_to "Logout",  destroy_user_session_path, :method => :delete %>
+
+<% end %>
+
+
+
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
