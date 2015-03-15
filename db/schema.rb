@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313104432) do
+ActiveRecord::Schema.define(version: 20150316000109) do
 
   create_table "reservations", force: :cascade do |t|
     t.string   "lastname"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20150313104432) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
+
+  create_table "simple_captcha_data", force: :cascade do |t|
+    t.string   "key",        limit: 40
+    t.string   "value",      limit: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], name: "idx_key"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

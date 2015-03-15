@@ -8,3 +8,8 @@ class Reservation < ActiveRecord::Base
 
 
 end
+
+
+class User < ActiveRecord::Base
+	  apply_simple_captcha
+end
