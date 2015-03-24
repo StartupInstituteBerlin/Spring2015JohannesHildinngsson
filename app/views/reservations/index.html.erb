@@ -1,6 +1,8 @@
 <h1>Reservations</h1>
 
-<%= =>
+ Reservations 
+<h1>Listing all reservations for <%= current_user.email %></h1>
+<% @reservation.each do |c|  %>
+<li><%= c.lastname  %> <br /></li>
 
-
-
+<% end %>

@@ -1,6 +1,6 @@
 class CreateRestaurants < ActiveRecord::Migration
   def change
-    create_table :restaurants do |t|
+    create_table :ratings do |t|
       t.string :name
 	  t.text :description
 	  t.string :phonenumber

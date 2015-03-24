@@ -1,11 +1,19 @@
 class ReservationsController < ApplicationController
 
   def index
-    @reservation = Reservation.all
+    @userid = current_user.id
+    @restaurant = current_user.restaurants.all.pluck(:id)
+    puts @restaurant 
+    @reservation = Reservation.find(@restaurant.to_a)
+    
+    #@reservation = Reservation.join(:restaurant :user).where(:restaurants
+    
+#    @reservation = Reservation.joins(restaurant: :user).where(restaurants: { user_id:  current_user.id })
   end
   
   def new
     @reservation = Reservation.new(restaurant_id: params[:restaurant_id])
+ 
   end
   
   def create

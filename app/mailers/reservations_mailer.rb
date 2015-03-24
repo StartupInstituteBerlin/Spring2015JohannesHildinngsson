@@ -4,7 +4,7 @@ class ReservationsMailer < ApplicationMailer
     puts "++++++++++++++IN SEND+++++++++++++++++++++"
     @reservation = reservation 
     mail(to:reservation.email, subject: "Your reservation")
-    puts "Mail sent to" + reservation.email
+    puts "Mail sent to" + reservation.email.to_s
       
 
   end

@@ -1,5 +1,5 @@
 class AddEmailToReservations < ActiveRecord::Migration
   def change
-    add_column :reservations, :email, :integer
+    add_column :reservations, :email, :string
   end
 end
