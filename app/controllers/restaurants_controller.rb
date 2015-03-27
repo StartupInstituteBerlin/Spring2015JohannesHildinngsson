@@ -6,9 +6,32 @@ before_action :authenticate_user!
 
   def show
    @restaurant = Restaurant.find(params[:id])
+   @has_rating = Rating.where(restaurant_id: @restaurant.id, user_id: current_user.id).exists?
+   @your_rating = Rating.where(restaurant_id: @restaurant.id, user_id: current_user.id).pluck(:rating).first
+   
+   puts @has_rating.to_s + "has rating"
   end
 
+  def rate_it
+    puts "RATE IT CONTROLLER"
+    Rating.create(restaurant_id: params[:restaurant_id], user_id: current_user.id, rating: params[:value])    
+    flash[:success] = "Thank you for your rating!"
+    render text: "ok"
+  end
+  
+  
+  def unrate_it
+    puts "UNNNNRATE IT CONTROLLER"
+    Rating.where(user_id: current_user.id, restaurant_id: params[:restaurant_id]).destroy_all
 
+    
+    flash[:success] = "Rating removed!"
+
+    redirect_to restaurants_path	
+  end
+  
+  
+  
   def new
     @restaurant = Restaurant.new
   end

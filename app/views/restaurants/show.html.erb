@@ -8,7 +8,7 @@
 
 <div id="map">
 
-  <img src="https://maps.googleapis.com/maps/api/staticmap?size=480x480&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=restaurant%257C996600%7C224<%= @restaurant.address %>">
+<!--  <img src="https://maps.googleapis.com/maps/api/staticmap?size=480x480&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=restaurant%257C996600%7C224<%= @restaurant.address %>"> -->
 </div>
 
 
@@ -17,3 +17,27 @@
 
 
 <%= link_to 'Make a reservation' , new_reservation_for_restaurant_path(@restaurant.id) %>
+
+<% if !@has_rating %>
+<div id='ratings'>
+<h4>Please give this restaurant a rating!</h4>
+    <%= link_to "rate 1", rate_restaurant_path(@restaurant, 1), class: 'rated rate_it_btn btn btn-success' %>
+    <%= link_to "rate 2", rate_restaurant_path(@restaurant, 2), class: 'rate_it_btn btn btn-success' %>
+    <%= link_to "rate 3", rate_restaurant_path(@restaurant, 3), class: 'rate_it_btn btn btn-success' %>
+    <%= link_to "rate 4", rate_restaurant_path(@restaurant, 4), class: 'rate_it_btn btn btn-success' %>
+    <%= link_to "rate 5", rate_restaurant_path(@restaurant, 5), class: 'rate_it_btn btn btn-success' %>
+    
+
+</div>
+<% end %>
+
+
+<% if @your_rating %>
+<div><%= "Your rating is " +  @your_rating.to_s %>
+</div>
+<% end %>
+
+<% if @has_rating %>
+<%= link_to "Unrate", unrate_restaurant_path(@restaurant, 5), class: 'unrate_it_btn btn btn-success' %>
+
+<% end %>
