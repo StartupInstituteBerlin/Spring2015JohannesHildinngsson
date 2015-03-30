@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jquery-validation-rails'
 gem 'twitter-bootstrap-rails'
 gem 'simple_captcha2', require: 'simple_captcha'
+gem 'rails_12factor', group: :production
+
 gem 'awesome_print'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
