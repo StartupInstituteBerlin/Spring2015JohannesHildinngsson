@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jquery-validation-rails'
 gem 'twitter-bootstrap-rails'
 gem 'simple_captcha2', require: 'simple_captcha'
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production #for heroku
 
 gem 'awesome_print'
 # Use ActiveModel has_secure_password
